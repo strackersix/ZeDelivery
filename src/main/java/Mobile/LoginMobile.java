@@ -19,9 +19,6 @@ public class LoginMobile implements Constantes {
 		step.senha(senhaZeDelivery);
 		step.entrar();
 
-
-		
-		
 		
 	}
 

@@ -8,29 +8,21 @@ import io.appium.java_client.MobileBy;
 public class _Framework extends BasePageMobile {
 
 	
-	public void permitirDuranteUsoApp () throws InterruptedException {
+	public void permitirDuranteUsoApp () {
 		
-		try {
-			
-			waitToBeClickable("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']", 20);
-			driver.findElement(By.xpath("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']")).click();
-		
-		} catch (Throwable e) {}
+		waitToBeClickable("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']", 20);
+		driver.findElement(MobileBy.xpath("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']")).click();
+	
 	}
 	
 	public void pularIntroducao () throws InterruptedException {
-		
-		try {
-			
-			waitToBeClickable("//android.widget.TextView[@text = 'Pular introdução']", 10);
-			Thread.sleep(5000);
-			driver.findElement(By.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
-						
-		} catch (Throwable e) {}
-		
+					
+		waitToBeVisibility("//android.view.ViewGroup[@content-desc = 'onboarding-primary-action-button']", 10);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
+					
 	}
-	
-	
+		
 	public void entrarNaConta () {
 		
 		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'already-have-an-account']", 10);
@@ -86,8 +78,24 @@ public class _Framework extends BasePageMobile {
 	
 	public void verSacola () {
 		
-		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'bag-on-press']", 10);
-		driver.findElement(MobileBy.AccessibilityId("bag-total-of-products")).click();
+		try {
+			
+			Thread.sleep(2000);
+			waitToBeClickable("//android.widget.TextView[@text = 'EU QUERO!!']", 10);
+			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'EU QUERO!!']")).click();
+						
+		} catch (Throwable e) {}
+		
+		try {
+	
+			waitToBeClickable("//android.view.ViewGroup[@content-desc = 'bag-on-press']", 10);
+			driver.findElement(MobileBy.AccessibilityId("bag-total-of-products")).click();
+			
+		} catch (Throwable e) {
+
+			System.out.println("Não há produtos na Sacola para serem exlcuidos.");
+			
+		}
 		
 	}
 	
@@ -108,8 +116,13 @@ public class _Framework extends BasePageMobile {
 			} while (descExcluir.contentEquals("delete-product"));
 			
 		} catch (Throwable e) {}
-				
+	
+		try {
+		
+			driver.findElement(MobileBy.AccessibilityId("Go Back")).click();
+			
+		} catch (Throwable e) {}
+			
 	}
-	
-	
+		
 }

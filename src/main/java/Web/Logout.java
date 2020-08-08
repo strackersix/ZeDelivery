@@ -5,18 +5,21 @@ import org.junit.Test;
 import _Core.Constantes;
 import _Core.DriverFactoryWeb;
 
-public class InserirProdutosNaSacola implements Constantes {
+public class Logout implements Constantes {
 	
 	_Framework step = new _Framework();
 	
 	@Test
-	public void executaPedido () {
+	public void executaLogout () {
 		
 		step.url(urlZeDelivery);
-		step.sextou("skol", 10, "original", 20, "coloRado", 15);
+		step.perfil();
+		step.sair();
 		
-
+		DriverFactoryWeb.finalizarDriverFactory();
+		
 	}
+	
 	
 	
 

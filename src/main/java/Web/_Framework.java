@@ -131,7 +131,22 @@ public class _Framework extends BasePageWeb implements Constantes {
 		}
 	}
 	
+	public void perfil () {
+		
+		driver.findElement(By.xpath("//div[@id = 'header-user-badge']")).click();
+		
+	}
 	
+	public void sair () {
+		
+		waitToBeClickable("//div[@id = 'logout-button']/div", 5);
+		driver.findElement(By.xpath("//div[@id = 'logout-button']/div")).click();
+		waitToBeClickable("//button[@id = 'primary-modal-button']", 5);
+		driver.findElement(By.xpath("//button[@id = 'primary-modal-button']")).click();
+		waitToBeClickable("(//div[@class = 'css-72k0mz-container']/*)[1]", 5);
+		driver.findElement(By.xpath("(//div[@class = 'css-72k0mz-container']/*)[1]")).click();
+		
+	}
 	
 
 }

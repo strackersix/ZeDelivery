@@ -9,17 +9,19 @@ import API.API;
 import Mobile.LoginMobile;
 import Mobile.ExcluirProdutosDaSacola;
 import Web.Login;
+import Web.Logout;
 import Web.InserirProdutosNaSacola;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	
-	//API
-	API.class,
+//	//API
+//	API.class,
 	
 	//WEB
 	Login.class,
 	InserirProdutosNaSacola.class,
+	Logout.class,
 	
 	//Mobile
 	LoginMobile.class,
@@ -37,6 +39,7 @@ public class SuiteTestes {
 	public static void killDriverFactory () {
 		
 //		DriverFactoryWeb.finalizarDriverFactory();
+//		DriverFactoryMobile.FinalizarDriverFactory();
 		
 	}
 	
