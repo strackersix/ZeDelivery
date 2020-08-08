@@ -6,7 +6,7 @@ import org.junit.Test;
 import _Core.Constantes;
 import _Core.DriverFactoryWeb;
 
-public class Login implements Constantes {
+public class LoginWeb implements Constantes {
 	
 	_Framework step = new _Framework();
 	
@@ -22,6 +22,7 @@ public class Login implements Constantes {
 		step.logar();
 		
 		Assert.assertEquals("Olá, Joao", step.validaLogin());
+		
 		
 	}
 		

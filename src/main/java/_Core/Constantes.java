@@ -12,11 +12,8 @@ public interface Constantes {
 	String base_PATH = "";
 	Integer port_HTTP = 80; 
 	Integer port_HTTPS = 443; 
-	
 	ContentType contentType = ContentType.JSON;
 	Long Max_Timout = 20000L;
-	
-	
-	
+
 
 }

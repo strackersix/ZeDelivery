@@ -14,10 +14,8 @@ public class InserirProdutosNaSacola implements Constantes {
 		
 		step.url(urlZeDelivery);
 		step.sextou("skol", 10, "original", 20, "coloRado", 15);
-		
-
+	
 	}
-	
-	
+		
 
 }

@@ -5,7 +5,7 @@ import org.junit.Test;
 import _Core.Constantes;
 import _Core.DriverFactoryWeb;
 
-public class Logout implements Constantes {
+public class LogoutWeb implements Constantes {
 	
 	_Framework step = new _Framework();
 	

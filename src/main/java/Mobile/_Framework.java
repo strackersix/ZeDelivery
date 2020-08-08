@@ -71,7 +71,7 @@ public class _Framework extends BasePageMobile {
 	
 	public void verProdutosDisponiveis () {
 
-		waitToBeClickable("//android.widget.TextView[@text = 'DETALHES DO PEDIDO']", 5);
+		waitToBeClickable("//android.widget.TextView[@text = 'DETALHES DO PEDIDO']", 3);
 		driver.findElement(MobileBy.AccessibilityId("see-products")).click();
 		
 	}
@@ -81,14 +81,14 @@ public class _Framework extends BasePageMobile {
 		try {
 			
 			Thread.sleep(2000);
-			waitToBeClickable("//android.widget.TextView[@text = 'EU QUERO!!']", 10);
+			waitToBeClickable("//android.widget.TextView[@text = 'EU QUERO!!']", 3);
 			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'EU QUERO!!']")).click();
 						
 		} catch (Throwable e) {}
 		
 		try {
 	
-			waitToBeClickable("//android.view.ViewGroup[@content-desc = 'bag-on-press']", 10);
+			waitToBeClickable("//android.view.ViewGroup[@content-desc = 'bag-on-press']", 3);
 			driver.findElement(MobileBy.AccessibilityId("bag-total-of-products")).click();
 			
 		} catch (Throwable e) {
@@ -124,5 +124,29 @@ public class _Framework extends BasePageMobile {
 		} catch (Throwable e) {}
 			
 	}
+	
+	public void perfil () {
+		
+		waitToBeClickable("//android.widget.TextView[@content-desc = 'edit-profile']", 3);
+		driver.findElement(MobileBy.AccessibilityId("edit-profile")).click();
+		
+	}
+	
+	public void sair () {
+		
+		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'logout-card']", 3);
+		driver.findElement(MobileBy.AccessibilityId("logout-card")).click();
+		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'primary-modal-button']", 3);
+		driver.findElement(MobileBy.AccessibilityId("primary-modal-button")).click();
+				
+	}
+	
+	public String validarLogout () {
+		
+		waitToBeClickable("//android.widget.TextView[@text = 'ENTRAR NA CONTA']", 3);
+		return driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'ENTRAR NA CONTA']")).getText();
+		
+	}
+	
 		
 }

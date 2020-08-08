@@ -6,27 +6,28 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import API.API;
-import Mobile.LoginMobile;
 import Mobile.ExcluirProdutosDaSacola;
-import Web.Login;
-import Web.Logout;
+import Mobile.LoginMobile;
+import Mobile.LogoutMobile;
 import Web.InserirProdutosNaSacola;
+import Web.LoginWeb;
+import Web.LogoutWeb;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	
 //	//API
 //	API.class,
-	
-	//WEB
-	Login.class,
-	InserirProdutosNaSacola.class,
-	Logout.class,
-	
+//	
+//	//WEB
+//	LoginWeb.class,
+//	InserirProdutosNaSacola.class,
+//	LogoutWeb.class,
+//	
 	//Mobile
 	LoginMobile.class,
 	ExcluirProdutosDaSacola.class,
-	
+	LogoutMobile.class
 	
 	
 })
@@ -38,10 +39,8 @@ public class SuiteTestes {
 	@AfterClass
 	public static void killDriverFactory () {
 		
-//		DriverFactoryWeb.finalizarDriverFactory();
-//		DriverFactoryMobile.FinalizarDriverFactory();
+		DriverFactoryMobile.FinalizarDriverFactory();
 		
 	}
-	
 
 }

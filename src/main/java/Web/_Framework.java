@@ -82,8 +82,7 @@ public class _Framework extends BasePageWeb implements Constantes {
 						
 			String produto = listaMarca.get(i);
 			String produtoConvertido = produto.substring(0,1).toUpperCase() + produto.substring(1).toLowerCase();
-			System.out.println(produtoConvertido + " Qtde: " + qtde);
-	
+				
 			try {
 				
 				waitToBeClickable("//div[@class = 'css-v2ahk8-customShelfCardContainer']/a[@title = '"+produtoConvertido+"']/..", 10);
