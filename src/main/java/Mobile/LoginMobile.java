@@ -3,7 +3,6 @@ package Mobile;
 import org.junit.Test;
 
 import _Core.Constantes;
-import _Core.DriverFactoryWeb;
 
 public class LoginMobile implements Constantes {
 

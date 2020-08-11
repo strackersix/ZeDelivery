@@ -3,7 +3,6 @@ package Web;
 import org.junit.Test;
 
 import _Core.Constantes;
-import _Core.DriverFactoryWeb;
 
 public class InserirProdutosNaSacola implements Constantes {
 	

@@ -32,6 +32,7 @@ public class _Framework extends BasePageWeb implements Constantes {
 		
 	}
 	
+	@Deprecated
 	public void entrarComEmail () {
 		
 		waitToBeClickable("//button[@id = 'login-home-email-button-sign-in']", 10);
@@ -41,6 +42,7 @@ public class _Framework extends BasePageWeb implements Constantes {
 	
 	public void usuario (String usuario) {
 		
+		waitToBeClickable("//input[@id = 'login-mail-input-email']", 10);
 		driver.findElement(By.xpath("//input[@id = 'login-mail-input-email']")).sendKeys(usuario);
 		
 	}
@@ -142,10 +144,14 @@ public class _Framework extends BasePageWeb implements Constantes {
 		driver.findElement(By.xpath("//div[@id = 'logout-button']/div")).click();
 		waitToBeClickable("//button[@id = 'primary-modal-button']", 5);
 		driver.findElement(By.xpath("//button[@id = 'primary-modal-button']")).click();
-		waitToBeClickable("(//div[@class = 'css-72k0mz-container']/*)[1]", 5);
-		driver.findElement(By.xpath("(//div[@class = 'css-72k0mz-container']/*)[1]")).click();
+				
+	}
+	
+	public String validaLogout () {
+		
+		waitToBeClickable("//p[text() = 'ENTRAR NA CONTA COM E-MAIL']", 10);
+		return driver.findElement(By.xpath("//p[text() = 'ENTRAR NA CONTA COM E-MAIL']")).getText();
 		
 	}
 	
-
 }

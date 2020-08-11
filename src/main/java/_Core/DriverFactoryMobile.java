@@ -11,12 +11,12 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class DriverFactoryMobile {
 
-	public static AndroidDriver<MobileElement> driver = EncapsularCreateDriver();
+	public static AndroidDriver<MobileElement> driver = inicializarDriverFactoryMobile();
 
-	public static void CreateDriver() {
+	public static void createDriver() {
 
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-
+		
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "UBV7N18321003225");
 		desiredCapabilities.setCapability("automationName", "uiautomator2");
@@ -31,30 +31,26 @@ public class DriverFactoryMobile {
 		} catch (MalformedURLException e) {
 
 			e.printStackTrace();
-
 		}
-
 	}
 	
-	public static AndroidDriver<MobileElement> EncapsularCreateDriver() {
+	public static AndroidDriver<MobileElement> inicializarDriverFactoryMobile() {
 
 		if (driver == null) {
-			CreateDriver();
+			createDriver();
 
 		}
 
 		return driver;
-
 	}
 
-	public static void FinalizarDriverFactory() {
+	public static void finalizarDriverFactory() {
 
 		if (driver != null) {
 			driver.quit();
 			driver = null;
 
 		}
-
 	}
 
 }
