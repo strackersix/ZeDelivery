@@ -9,4 +9,5 @@
  * [chromedriver.exe](https://chromedriver.storage.googleapis.com/index.html?path=84.0.4147.30/)
  * [Android Studio](https://developer.android.com/studio)
  * [Appium](https://github.com/appium/appium-desktop/releases)
- 
+ ---
+ ### Em construção...
