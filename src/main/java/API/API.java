@@ -12,14 +12,14 @@ import org.junit.runners.MethodSorters;
 import _Core.BaseTest;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class API extends BaseTest {
+public class API extends BaseTest implements JSON {
 	
 	@Test 
 	public void T_01_inserirUsuarios () {
 		
 		given()
 			.contentType(contentType)
-			.body("[{\"id\": 1, \"username\": \"ana.maria\", \"firstName\": \"Ana\", \"lastName\": \"Maria\", \"email\": \"ana.maria@itau.com.br\", \"password\": \"123456\", \"phone\": \"11981699678\", \"userStatus\": 1 } , { \"id\": 2, \"username\": \"rodrigo.mendes\", \"firstName\": \"Rodrigo\", \"lastName\": \"Mendes\", \"email\": \"rodrigo.mendes@itau.com.br\", \"password\": \"123456\", \"phone\": \"11981699678\", \"userStatus\": 1 } , { \"id\": 3, \"username\": \"tatiana.vasconcelos\", \"firstName\": \"Tatiana\", \"lastName\": \"Vasconcelos\", \"email\": \"tatiana.vasconcelos@itau.com.br\", \"password\": \"123456\", \"phone\": \"11981699678\", \"userStatus\": 1 }]")
+			.body(T_01_inserirUsuarios)
 		.when()
 			.post("v2/user/createWithList")
 		.then()
@@ -28,7 +28,7 @@ public class API extends BaseTest {
 			.body("type", is("unknown"))
 			.body("message", is("ok"))
 		;
-				
+		
 	}
 	
 	@Test 
@@ -36,7 +36,7 @@ public class API extends BaseTest {
 		
 		given()
 			.contentType(contentType)
-			.body("{ \"id\": 1, \"category\": { \"id\": 10, \"name\": \"Snoopy\" }, \"name\": \"Bichento\", \"photoUrls\": [ \"cat\" ], \"tags\": [ { \"id\": 20, \"name\": \"Perry\" } ], \"status\": \"Ativado\" }")
+			.body(T_02_inserirPets)
 		.when()
 			.post("v2/pet")
 		.then()
@@ -59,7 +59,7 @@ public class API extends BaseTest {
 		
 		given()
 			.contentType(contentType)
-			.body("{ \"id\": 1, \"petId\": 20, \"quantity\": 1, \"shipDate\": \"2020-06-21T16:02:27.627Z\", \"status\": \"placed\", \"complete\": true }")
+			.body(T_03_vendaPetParryAnaMaria)
 		.when()
 			.post("v2/store/order")
 		.then()
@@ -71,7 +71,6 @@ public class API extends BaseTest {
 			.body("shipDate", is("2020-06-21T16:02:27.627+0000"))
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
-				
 		;
 		
 	}
@@ -82,7 +81,7 @@ public class API extends BaseTest {
 		given()
 			.log().all()
 			.contentType(contentType)
-			.body("{ \"id\": 2, \"petId\": 10, \"quantity\": 1, \"shipDate\": \"2020-06-21T16:03:27.627Z\", \"status\": \"placed\", \"complete\": true }")
+			.body(T_04_vendaPetSnoopyRodrigoMendes)
 		.when()
 			.post("v2/store/order")
 		.then()
@@ -94,7 +93,6 @@ public class API extends BaseTest {
 			.body("shipDate", is("2020-06-21T16:03:27.627+0000"))
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
-		
 		;
 		
 	}
@@ -105,7 +103,7 @@ public class API extends BaseTest {
 		given()
 			.log().all()
 			.contentType(contentType)
-			.body("{ \"id\": 3, \"petId\": 10, \"quantity\": 1, \"shipDate\": \"2020-06-21T16:03:27.627Z\", \"status\": \"placed\", \"complete\": true }")
+			.body(T_05_vendaPetSnoopyTatianaVasconcelos)
 		.when()
 			.post("v2/store/order")
 		.then()
@@ -117,7 +115,6 @@ public class API extends BaseTest {
 			.body("shipDate", is("2020-06-21T16:03:27.627+0000"))
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
-			
 		;
 		
 	}
@@ -128,7 +125,7 @@ public class API extends BaseTest {
 		given()
 			.contentType(contentType)
 		.when()
-			.get("v2/store/order/1")
+			.get(T_06_consultarPrimeiraOrdem)
 		.then()
 			.log().all()
 			.statusCode(200)
@@ -138,7 +135,6 @@ public class API extends BaseTest {
 			.body("shipDate", is("2020-06-21T16:02:27.627+0000"))
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
-			
 		;
 		
 	}
@@ -149,7 +145,7 @@ public class API extends BaseTest {
 		given()
 			.contentType(contentType)
 		.when()
-			.get("v2/store/order/2")
+			.get(T_07_consultarSegundaOrdem)
 		.then()
 			.log().all()
 			.statusCode(200)
@@ -169,11 +165,11 @@ public class API extends BaseTest {
 		given()
 			.contentType(contentType)
 		.when()
-			.get("v2/store/order/3")
+			.get(T_07_consultarSegundaOrdem)
 		.then()
 			.log().all()
 			.statusCode(200)
-			.body("id", is(3))
+			.body("id", is(2))
 			.body("petId", is(10))
 			.body("quantity", is(1))
 			.body("shipDate", is("2020-06-21T16:03:27.627+0000"))

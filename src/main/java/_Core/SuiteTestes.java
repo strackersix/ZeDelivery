@@ -31,8 +31,6 @@ import Web.LogoutWeb;
 	
 })
 
-
-
 public class SuiteTestes {
 	
 	@AfterClass

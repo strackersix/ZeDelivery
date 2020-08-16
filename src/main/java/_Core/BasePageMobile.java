@@ -10,9 +10,9 @@ public class BasePageMobile extends DriverFactoryMobile {
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-
-	}
 	
+	}
+		
 	public void waitToBeVisibility (String locator, int secondsTimeOut) {
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
