@@ -1,6 +1,6 @@
 # ZeDelivery
 ## Automação de testes integrados ( API - UI Web / Mobile )
-![Can you](https://github.com/strackersix/ZeDelivery/blob/master/can%20you.gif)
+![Can you](https://github.com/strackersix/ZeDelivery/blob/master/icones-readme/can%20you.gif)
 
 #### Para executar o projeto, baixe e instale os seguintes programas: 
 
