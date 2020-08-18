@@ -1,4 +1,4 @@
-## Automatizando a Pirâmide de Testes
+# Automatizando a Pirâmide de Testes
 ### Automação de testes integrados nas camadas de: ( API - UI Web / Mobile )
 ![Can you](https://github.com/strackersix/ZeDelivery/blob/master/icones-readme/can%20you.gif)
 
