@@ -28,7 +28,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("type", is("unknown"))
 			.body("message", is("ok"))
 		;
-		
 	}
 	
 	@Test 
@@ -51,7 +50,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("tags.name", contains("Perry"))
 			.body("status", is("Ativado"))
 		;
-		
 	}
 	
 	@Test
@@ -72,7 +70,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
 		;
-		
 	}
 	
 	@Test
@@ -94,7 +91,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
 		;
-		
 	}
 	
 	@Test
@@ -116,7 +112,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
 		;
-		
 	}
 	
 	@Test
@@ -136,7 +131,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
 		;
-		
 	}
 	
 	@Test
@@ -156,7 +150,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
 		;
-		
 	}
 	
 	@Test
@@ -176,7 +169,6 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("status", is("placed"))
 			.body("complete", equalTo(true))
 		;
-		
 	}
 
 }
