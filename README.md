@@ -10,5 +10,5 @@
  * [Android Studio](https://developer.android.com/studio)
  * [Appium](https://github.com/appium/appium-desktop/releases)
  ---
- ### Em construção...
- ![](https://github.com/strackersix/ZeDelivery/blob/master/icones-readme/Constru%C3%A7%C3%A3o.PNG)
+ ### Em construção... :construction:
+
