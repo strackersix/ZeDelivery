@@ -1,6 +1,6 @@
 # Automatizando a Pirâmide de Testes
 ### Objetivo
-##### Integrar os testes automatizados das camadas de: API, UI Web e UI Mobile da pirâmide de testes, garantindo as respostas dos Endpoints da API: [Swagger Petstore:dog:](https://petstore.swagger.io/), a movimentação dos produtos sendo adicionados a pela: [Web Zé Delivery:beer:](https://www.ze.delivery/), e por ultimo a localização e exclusão destes items no [Mobile ZéDelivery:beers:](https://apkpure.com/br/z%C3%A9-delivery-de-bebidas-gelada-a-pre%C3%A7o-de-mercado/com.cerveceriamodelo.modelonow) 
+##### Integrar os testes automatizados das camadas de: API, UI Web e UI Mobile da pirâmide de testes, garantindo as respostas dos Endpoints da API: [Swagger Petstore:dog:](https://petstore.swagger.io/), a movimentação dos produtos sendo adicionados a sacola pela aplicação: [Web Zé Delivery:beer:](https://www.ze.delivery/), e por ultimo estes itens  e excluindo os mesmos da sacola via [Mobile ZéDelivery:beers:](https://apkpure.com/br/z%C3%A9-delivery-de-bebidas-gelada-a-pre%C3%A7o-de-mercado/com.cerveceriamodelo.modelonow) 
 
 ![Can you](https://github.com/strackersix/ZeDelivery/blob/master/icones-readme/can%20you.gif)
 
