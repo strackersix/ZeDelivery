@@ -12,5 +12,5 @@
  * [Android Studio](https://developer.android.com/studio)
  * [Appium](https://github.com/appium/appium-desktop/releases)
  ---
- ### Em construção... :construction:
+ ### README.md em construção... :construction:
 
