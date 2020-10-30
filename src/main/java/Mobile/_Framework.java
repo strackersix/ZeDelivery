@@ -1,26 +1,35 @@
 package Mobile;
 
-import org.openqa.selenium.By;
-
 import _Core.BasePageMobile;
 import io.appium.java_client.MobileBy;
 
 public class _Framework extends BasePageMobile {
 
 	
+	boolean permitirConteudo;
 	public void permitirDuranteUsoApp () {
 		
-		waitToBeClickable("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']", 20);
-		driver.findElement(MobileBy.xpath("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']")).click();
-	
-	}
+		try {
+			waitToBeClickable("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']", 20);
+			driver.findElement(MobileBy.xpath("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']")).click();
+			permitirConteudo = true;
+		} catch (Exception e) {}
+		
+	}	
 	
 	public void pularIntroducao () throws InterruptedException {
-					
-		waitToBeVisibility("//android.view.ViewGroup[@content-desc = 'onboarding-primary-action-button']", 10);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
-					
+
+		permitirDuranteUsoApp();
+			
+		if (permitirConteudo == true) {
+			Thread.sleep(7000);
+			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
+		} else {
+			Thread.sleep(3000);
+			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
+			permitirDuranteUsoApp();
+		}
+		
 	}
 		
 	public void entrarNaConta () {
@@ -49,33 +58,36 @@ public class _Framework extends BasePageMobile {
 		
 	}
 	
-	public void selecionarEndereco () {
+	public void continuar () {
 		
-		waitToBeClickable("//android.widget.TextView[@text = 'Onde você quer suas bebidas?']", 5);
-		driver.findElement(MobileBy.AccessibilityId("address-card-HISTORIC")).click();
+		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'continue']", 5);
+		driver.findElement(MobileBy.AccessibilityId("continue")).click();
 		
 	}
 	
+	public void selecionarEndereco () {
+		
+		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'address-card-HOME']", 5);
+		driver.findElement(MobileBy.AccessibilityId("address-card-HISTORIC")).click();
+		continuar();
+		
+	}
+	
+	@Deprecated
 	public void selecionarCasa () {
 		
 		waitToBeClickable("//android.widget.TextView[@text = 'ENDEREÇO']", 5);
 		driver.findElement(MobileBy.AccessibilityId("home-button")).click();
 		
 	}
-	
-	public void continuar () {
-		
-		driver.findElement(MobileBy.AccessibilityId("continue")).click();
-		
-	}
-	
+
 	public void verProdutosDisponiveis () {
 
 		waitToBeClickable("//android.widget.TextView[@text = 'DETALHES DO PEDIDO']", 3);
 		driver.findElement(MobileBy.AccessibilityId("see-products")).click();
 		
 	}
-	
+
 	public void verSacola () {
 		
 		try {
@@ -93,7 +105,7 @@ public class _Framework extends BasePageMobile {
 			
 		} catch (Throwable e) {
 
-			System.out.println("Não há produtos na Sacola para serem exlcuidos.");
+			System.out.println("Não ha produtos na Sacola para serem excluídos.");
 			
 		}
 		

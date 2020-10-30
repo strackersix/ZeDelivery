@@ -16,13 +16,13 @@ import Web.LogoutWeb;
 @RunWith(Suite.class)
 @SuiteClasses({
 	
-	//API
-	API.class,
-	
-	//WEB
-	LoginWeb.class,
-	InserirProdutosNaSacola.class,
-	LogoutWeb.class,
+//	//API
+//	API.class, 
+//	
+//	//WEB
+//	LoginWeb.class,
+//	InserirProdutosNaSacola.class,
+//	LogoutWeb.class,
 	
 	//Mobile
 	LoginMobile.class,
@@ -36,7 +36,7 @@ public class SuiteTestes {
 	@AfterClass
 	public static void killDriverFactory () {
 		
-		DriverFactoryMobile.finalizarDriverFactory();
+//		DriverFactoryMobile.finalizarDriverFactory();
 		
 	}
 

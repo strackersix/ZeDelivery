@@ -66,7 +66,8 @@ public class _Framework extends BasePageWeb implements Constantes {
 		
 	}
 	
-	public void sextou (String marca1, int qtde1,  String marca2, int qtde2, String marca3, int qtde3) {
+	
+	public void sextouOld (String marca1, int qtde1,  String marca2, int qtde2, String marca3, int qtde3) {
 		
 		waitToBeClickable("//div[@id = 'category-Cervejas']", 10);
 		driver.findElement(By.xpath("//div[@id = 'category-Cervejas']")).click();
@@ -84,7 +85,7 @@ public class _Framework extends BasePageWeb implements Constantes {
 						
 			String produto = listaMarca.get(i);
 			String produtoConvertido = produto.substring(0,1).toUpperCase() + produto.substring(1).toLowerCase();
-				
+							
 			try {
 				
 				waitToBeClickable("//div[@class = 'css-v2ahk8-customShelfCardContainer']/a[@title = '"+produtoConvertido+"']/..", 10);
@@ -94,8 +95,8 @@ public class _Framework extends BasePageWeb implements Constantes {
 
 				try {
 					
-					waitToBeClickable("//div[@class = 'css-1bgtget-Checkbox']/*[2]", 0);
-					driver.findElement(By.xpath("//div[@class = 'css-1bgtget-Checkbox']/*[2]")).click();
+					waitToBeClickable("//label[@class = 'css-ev311a-label']", 0);
+					driver.findElement(By.xpath("//label[@class = 'css-ev311a-label']")).click();
 					
 				} catch (Exception e) {}
 								
@@ -111,6 +112,12 @@ public class _Framework extends BasePageWeb implements Constantes {
 					
 					indicador++;
 					driver.findElement(By.xpath("//button[@id = 'add-product']")).click();
+				
+					try {
+						waitToBeClickable("//button[@id = 'primary-modal-button']", 10);
+						driver.findElement(By.xpath("//button[@id = 'primary-modal-button']")).click();
+					} catch (Exception e) {}
+					
 					waitToBeClickable("//div[@class = 'css-6k9kan-header']/*[@id = 'sidebar-header-close-button']", 10);
  					driver.findElement(By.xpath("//div[@class = 'css-6k9kan-header']/*[@id = 'sidebar-header-close-button']")).click();
 					waitToBeClickable("//div[@id = 'category-Cervejas']", 10);
@@ -130,6 +137,28 @@ public class _Framework extends BasePageWeb implements Constantes {
 				}
 			} catch (Exception e) {}
 		}
+	}
+	
+	public void sextou ( String pronto1, Integer qtde1 ) {
+		
+//		waitToBeClickable("//div[@id = 'category-Cervejas']", 10);
+//		driver.findElement(By.xpath("//div[@id = 'category-Cervejas']")).click();
+//				
+//		switch (pronto1) {
+//			case "brahma": 
+//				
+//				break;
+//				
+//			case "skoll": 
+//				
+//				break;
+//	
+//			default:
+//				break;
+//			}
+//		
+		
+		
 	}
 	
 	public void perfil () {

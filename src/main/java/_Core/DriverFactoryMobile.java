@@ -32,6 +32,7 @@ public class DriverFactoryMobile {
 
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public static AndroidDriver<MobileElement> inicializarDriverFactoryMobile() {

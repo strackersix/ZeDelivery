@@ -10,8 +10,6 @@ public class ExcluirProdutosDaSacola {
 	public void executaExcluirProdutosDaSacola () {
 		
 		step.selecionarEndereco();
-		step.selecionarCasa();
-		step.continuar();
 		step.verProdutosDisponiveis();
 		step.verSacola();
 		step.excluirProdutos();
