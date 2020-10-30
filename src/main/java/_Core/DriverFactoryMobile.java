@@ -22,7 +22,7 @@ public class DriverFactoryMobile {
 		desiredCapabilities.setCapability("automationName", "uiautomator2");
 		desiredCapabilities.setCapability("appPackage", "com.cerveceriamodelo.modelonow");
 		desiredCapabilities.setCapability("appActivity", "com.cerveceriamodelo.modelonow.MainActivity");
-		desiredCapabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\Gabriel\\eclipse-workspace\\Ze\\src\\test\\resources\\Mobile\\APK\\ZÈDelivery_v20.27.1_apkpure.com.apk");
+		desiredCapabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\Gabriel\\eclipse-workspace\\Ze\\src\\test\\resources\\Mobile\\APK\\Z√©Delivery_v20.27.1_apkpure.com.apk");
 
 		try {
 

@@ -23,10 +23,10 @@ public class _Framework extends BasePageMobile {
 			
 		if (permitirConteudo == true) {
 			Thread.sleep(7000);
-			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
+			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introduÃ§Ã£o']")).click();
 		} else {
 			Thread.sleep(3000);
-			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
+			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introduÃ§Ã£o']")).click();
 			permitirDuranteUsoApp();
 		}
 		
@@ -76,7 +76,7 @@ public class _Framework extends BasePageMobile {
 	@Deprecated
 	public void selecionarCasa () {
 		
-		waitToBeClickable("//android.widget.TextView[@text = 'ENDEREÇO']", 5);
+		waitToBeClickable("//android.widget.TextView[@text = 'ENDEREÃ‡O']", 5);
 		driver.findElement(MobileBy.AccessibilityId("home-button")).click();
 		
 	}
@@ -105,7 +105,7 @@ public class _Framework extends BasePageMobile {
 			
 		} catch (Throwable e) {
 
-			System.out.println("Não ha produtos na Sacola para serem excluídos.");
+			System.out.println("NÃ£o ha produto na sacola para serem excluidos.");
 			
 		}
 		
