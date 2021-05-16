@@ -9,13 +9,13 @@ public class LoginMobile implements Constantes {
 	_Framework step = new _Framework();
 
 	@Test
-	public void executeLoginMobile() throws InterruptedException {
+	public void testLoginMobile() throws InterruptedException {
 
 		step.pularIntroducao();
 		step.entrarNaConta();
-		step.email(usuarioZeDelivery);
-		step.senha(senhaZeDelivery);
-		step.entrar();
+		step.escreverEmail(usuarioZeDelivery);
+		step.escreverSenha(senhaZeDelivery);
+		step.clicarBotaoEntrarEmailESenha();
 
 	}
 

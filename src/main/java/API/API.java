@@ -4,32 +4,35 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import _Core.BaseTest;
+import com.google.gson.JsonObject;
+
+import _Core.BaseTestAPI;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class API extends BaseTest implements PetStoreSwagger {
+public class API extends BaseTestAPI implements PetStoreSwagger {
 	
 	@Test 
 	public void T_01_inserirUsuarios () {
 		
 		given()
 			.contentType(contentType)
-			.body(T_01_inserirUsuariosJson)
+			.body(T_01_inserirUsuariosJson)	
 		.when()
 			.post(inserirUsuariosEndpoint)
 		.then()
 			.log().all()
 			.statusCode(200)
+			.body("code", is(200))
 			.body("type", is("unknown"))
 			.body("message", is("ok"))
+			
 		;
 	}
-	
+		
 	@Test 
 	public void T_02_inserirPets () {
 		
@@ -167,8 +170,8 @@ public class API extends BaseTest implements PetStoreSwagger {
 			.body("quantity", is(1))
 			.body("shipDate", is("2020-06-21T16:03:27.627+0000"))
 			.body("status", is("placed"))
-			.body("complete", equalTo(true))
-		;
+			.body("complete", equalTo(true));
+						
 	}
 
 }

@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
-import _Core.DriverFactoryWeb;
+import _Core.DriverFactory;
 
-public class Teste extends DriverFactoryWeb {
+public class Teste extends DriverFactory {
 	
 	
 	@Test

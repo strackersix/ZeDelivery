@@ -3,7 +3,7 @@ package Web;
 import org.junit.Test;
 
 import _Core.Constantes;
-import _Core.DriverFactoryWeb;
+import _Core.DriverFactory;
 import org.junit.Assert;
 
 public class LogoutWeb implements Constantes {
@@ -18,7 +18,7 @@ public class LogoutWeb implements Constantes {
 		step.sair();
 		
 		Assert.assertEquals("ENTRAR NA CONTA COM E-MAIL", step.validaLogout());
-		DriverFactoryWeb.finalizarDriverFactory();
+		DriverFactory.finalizarDriverFactory();
 		
 	}
 	

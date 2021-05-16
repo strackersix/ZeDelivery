@@ -7,7 +7,7 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 
-public class BaseTest implements Constantes {
+public class BaseTestAPI implements Constantes {
 	
 	@BeforeClass
 	public static void setup () {

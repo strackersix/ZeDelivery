@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePageWeb extends DriverFactoryWeb {
+public class BasePageWeb extends DriverFactory {
 		
 		
 	public void waitToBeClickable ( String locator, int secunds ) {

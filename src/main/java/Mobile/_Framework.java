@@ -1,164 +1,167 @@
 package Mobile;
 
-import _Core.BasePageMobile;
+import _Core.BaseScreenMobile;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-public class _Framework extends BasePageMobile {
+public class _Framework extends BaseScreenMobile {
 
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(xpath = "//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']")
+	private MobileElement permitirDuranteUsoAPP;
+		
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "long-splash-animation")
+	private MobileElement splash;
+		
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "onboarding-secondary-action-button")
+	private MobileElement pularIntroducao;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "already-have-an-account")
+	private MobileElement entrarNaConta;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "user-login-email")
+	private MobileElement escreverEmail;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "user-login-password")
+	private MobileElement escreverSenha;	
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "user-login-enterWithEmailAndPassword")
+	private MobileElement btnEntrar;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "continue")
+	private MobileElement continuar;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "address-card-HISTORIC")
+	private MobileElement selecionarEndereco;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "submit-button")
+	private MobileElement entendidoZe;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "bag-on-press")
+	private MobileElement verSacola;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "bag-total-of-products")
+	private MobileElement totalProdutosSacola;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "edit-profile")
+	private MobileElement perfil;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text = 'ENTRAR NA CONTA']")
+	private MobileElement validarLogout;
+	
 	
 	boolean permitirConteudo;
 	public void permitirDuranteUsoApp () {
 		
 		try {
-			waitToBeClickable("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']", 20);
-			driver.findElement(MobileBy.xpath("//android.widget.Button[@resource-id = 'com.android.permissioncontroller:id/permission_allow_foreground_only_button']")).click();
-			permitirConteudo = true;
+			click(permitirDuranteUsoAPP);
 		} catch (Exception e) {}
-		
 	}	
 	
 	public void pularIntroducao () throws InterruptedException {
 
 		permitirDuranteUsoApp();
-			
-		if (permitirConteudo == true) {
-			Thread.sleep(7000);
-			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
-		} else {
-			Thread.sleep(3000);
-			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'Pular introdução']")).click();
-			permitirDuranteUsoApp();
+		waitToBeVisibility(splash, 10);
+		String attribute = splash.getAttribute("content-desc");
+		while (attribute.equalsIgnoreCase("long-splash-animation")) {
+			try {
+				waitToBeVisibility(splash, 20);
+			} catch (Exception e) {
+				attribute = "";
+			}
 		}
-		
+		click(pularIntroducao);
 	}
 		
 	public void entrarNaConta () {
 		
-		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'already-have-an-account']", 10);
-		driver.findElement(MobileBy.AccessibilityId("already-have-an-account")).click();
-		
+		click(entrarNaConta);
 	}
 
-	public void email (String email) {
+	public void escreverEmail (String email) {
 		
-		waitToBeClickable("//android.widget.TextView[@text = 'ENTRAR']", 5);
-		driver.findElement(MobileBy.AccessibilityId("email")).sendKeys(email);
-		
+		sendKeys(escreverEmail, email);
 	}
 	
-	public void senha (String senha) {
+	public void escreverSenha (String senha) {
 		
-		driver.findElement(MobileBy.AccessibilityId("password")).sendKeys(senha);
-		
+		sendKeys(escreverSenha, senha);
 	}
 	
-	public void entrar () {
+	public void clicarBotaoEntrarEmailESenha () {
 		
-		driver.findElement(MobileBy.AccessibilityId("enter")).click();
-		
+		click(btnEntrar);
 	}
 	
-	public void continuar () {
-		
-		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'continue']", 5);
-		driver.findElement(MobileBy.AccessibilityId("continue")).click();
-		
+	public void clicarBotaoContinuar () {
+
+		click(continuar);
 	}
 	
 	public void selecionarEndereco () {
 		
-		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'address-card-HOME']", 5);
-		driver.findElement(MobileBy.AccessibilityId("address-card-HISTORIC")).click();
-		continuar();
-		
+		click(selecionarEndereco);
+		clicarBotaoContinuar();
 	}
 	
 	@Deprecated
 	public void selecionarCasa () {
-		
-		waitToBeClickable("//android.widget.TextView[@text = 'ENDEREÇO']", 5);
+
 		driver.findElement(MobileBy.AccessibilityId("home-button")).click();
-		
-	}
-
-	public void verProdutosDisponiveis () {
-
-		waitToBeClickable("//android.widget.TextView[@text = 'DETALHES DO PEDIDO']", 3);
-		driver.findElement(MobileBy.AccessibilityId("see-products")).click();
-		
 	}
 
 	public void verSacola () {
 		
-		try {
-			
-			Thread.sleep(2000);
-			waitToBeClickable("//android.widget.TextView[@text = 'EU QUERO!!']", 3);
-			driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'EU QUERO!!']")).click();
-						
-		} catch (Throwable e) {}
-		
-		try {
-	
-			waitToBeClickable("//android.view.ViewGroup[@content-desc = 'bag-on-press']", 3);
-			driver.findElement(MobileBy.AccessibilityId("bag-total-of-products")).click();
-			
-		} catch (Throwable e) {
-
-			System.out.println("Não ha produto na sacola para serem excluidos.");
-			
-		}
-		
+		click(entendidoZe);
+		click(verSacola);
 	}
 	
 	public void excluirProdutos () {
 		
 		String descExcluir;
 		try {
-			
 			do {
-				
-				waitToBeClickable("//android.widget.TextView[@text = 'SACOLA']", 10);
 				driver.findElement(MobileBy.AccessibilityId("delete-product")).click();
-				waitToBeClickable("//android.widget.TextView[@text = 'Sacola']", 10);
 				driver.findElement(MobileBy.AccessibilityId("primary-modal-button")).click();
 				Thread.sleep(2000);
 				descExcluir = driver.findElement(MobileBy.AccessibilityId("delete-product")).getAttribute("content-desc");
-							
 			} while (descExcluir.contentEquals("delete-product"));
-			
 		} catch (Throwable e) {}
 	
 		try {
-		
 			driver.findElement(MobileBy.AccessibilityId("Go Back")).click();
-			
 		} catch (Throwable e) {}
-			
 	}
 	
 	public void perfil () {
-		
-		waitToBeClickable("//android.widget.TextView[@content-desc = 'edit-profile']", 3);
-		driver.findElement(MobileBy.AccessibilityId("edit-profile")).click();
-		
+
+		click(perfil);
 	}
 	
 	public void sair () {
-		
-		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'logout-card']", 3);
+
 		driver.findElement(MobileBy.AccessibilityId("logout-card")).click();
-		waitToBeClickable("//android.view.ViewGroup[@content-desc = 'primary-modal-button']", 3);
 		driver.findElement(MobileBy.AccessibilityId("primary-modal-button")).click();
-				
 	}
 	
 	public String validarLogout () {
 		
-		waitToBeClickable("//android.widget.TextView[@text = 'ENTRAR NA CONTA']", 3);
-		return driver.findElement(MobileBy.xpath("//android.widget.TextView[@text = 'ENTRAR NA CONTA']")).getText();
-		
+		return getText(validarLogout);
 	}
-	
 		
 }

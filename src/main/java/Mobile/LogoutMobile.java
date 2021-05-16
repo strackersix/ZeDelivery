@@ -9,7 +9,7 @@ public class LogoutMobile {
 	_Framework step = new _Framework();
 	
 	@Test
-	public void executaLogout () {
+	public void testeLogout () {
 		
 		step.perfil();
 		step.sair();

@@ -61,7 +61,7 @@ public class _Framework extends BasePageWeb implements Constantes {
 	
 	public String validaLogin () {
 		
-		waitToBeClickable("//div[@class = 'css-162x1q9-textBase-UserProfileCard']", 10);
+		waitToBeClickable("//div[@class = 'css-162x1q9-textBase-UserProfileCard']", 20);
 		return driver.findElement(By.xpath("//div[@class = 'css-162x1q9-textBase-UserProfileCard']")).getText();
 		
 	}

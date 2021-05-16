@@ -3,7 +3,7 @@ package _Core;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverFactoryWeb {
+public class DriverFactory {
 
 	public static WebDriver driver;
 	
@@ -14,7 +14,7 @@ public class DriverFactoryWeb {
 		
 	}
 	
-	public DriverFactoryWeb() {
+	public DriverFactory() {
 		
 		inicializaDriverFactory ();
 		

@@ -7,10 +7,9 @@ public class ExcluirProdutosDaSacola {
 	_Framework step = new _Framework();
 	
 	@Test
-	public void executaExcluirProdutosDaSacola () {
+	public void testaExcluirProdutosDaSacola () {
 		
 		step.selecionarEndereco();
-		step.verProdutosDisponiveis();
 		step.verSacola();
 		step.excluirProdutos();
 		
