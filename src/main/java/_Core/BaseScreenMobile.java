@@ -7,7 +7,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
-public class BaseScreenMobile extends capabilities {
+public class BaseScreenMobile extends Capabilities {
 	
 	public BaseScreenMobile() {
 		super(driver);
@@ -32,16 +32,6 @@ public class BaseScreenMobile extends capabilities {
 		} catch (Exception e) {
 			wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
 		}
-	}
-	
-	public String getText (MobileElement element) {
-		
-		try {
-			wait.until(ExpectedConditions.elementToBeClickable(element)).getText();
-		} catch (Exception e) {
-			wait.until(ExpectedConditions.visibilityOf(element)).getText();
-		}
-		return null;
 	}
 	
 	public void waitToBeClickable (MobileElement element, int seconds ) {

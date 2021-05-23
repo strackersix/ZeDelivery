@@ -13,7 +13,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class capabilities implements Constantes {
+public class Capabilities implements Constantes {
 
 	public static AppiumDriver<MobileElement> driver = inicializarDriverFactoryMobile();
 
@@ -51,7 +51,7 @@ public class capabilities implements Constantes {
 		}
 	}
 	
-	public capabilities (AppiumDriver<MobileElement> driver) {
+	public Capabilities (AppiumDriver<MobileElement> driver) {
 		
 		PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(20)), this);
 	}

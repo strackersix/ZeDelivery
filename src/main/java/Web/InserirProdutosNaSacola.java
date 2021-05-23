@@ -12,7 +12,7 @@ public class InserirProdutosNaSacola implements Constantes {
 	public void executaPedido () {
 		
 		step.url(urlZeDelivery);
-		step.sextouOld("skOl", 100, "brAhMa", 70, "ORIGINAL", 300);
+		step.sextou("skOl", 10, "brAhMa", 15, "ORIGINAL", 5);
 
 		
 	

@@ -13,15 +13,9 @@ public class LoginWeb implements Constantes {
 	public void executeLogin () {
 		
 		step.url(urlZeDelivery);
-		step.maiorIdade();
-		step.entrar();
-		step.usuario(usuarioZeDelivery);
-		step.senha(senhaZeDelivery);
-		step.logar();
+		step.logar(usuarioZeDelivery, senhaZeDelivery);
 		
 		Assert.assertEquals("Olá, Joao", step.validaLogin());
-		
-		
 	}
-		
+	
 }

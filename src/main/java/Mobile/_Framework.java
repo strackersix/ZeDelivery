@@ -45,12 +45,24 @@ public class _Framework extends BaseScreenMobile {
 	private MobileElement selecionarEndereco;
 	
 	@iOSXCUITFindBy(id = "")
-	@AndroidFindBy(accessibility = "submit-button")
-	private MobileElement entendidoZe;
+	@AndroidFindBy(accessibility = "Sim, o endereço está certo")
+	private MobileElement enderecoEstaCorreto;
 	
 	@iOSXCUITFindBy(id = "")
 	@AndroidFindBy(accessibility = "bag-on-press")
 	private MobileElement verSacola;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "delete-product")	
+	private MobileElement excluirProduto;
+	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "Go Back")	
+	private MobileElement voltar;	
+		
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "primary-modal-button")	
+	private MobileElement confirmarExclusaoProduto;
 	
 	@iOSXCUITFindBy(id = "")
 	@AndroidFindBy(accessibility = "bag-total-of-products")
@@ -64,6 +76,14 @@ public class _Framework extends BaseScreenMobile {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@text = 'ENTRAR NA CONTA']")
 	private MobileElement validarLogout;
 	
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "logout-card")
+	private MobileElement sair;
+
+	@iOSXCUITFindBy(id = "")
+	@AndroidFindBy(accessibility = "primary-modal-button")
+	private MobileElement simQueroSair;
+
 	
 	boolean permitirConteudo;
 	public void permitirDuranteUsoApp () {
@@ -117,6 +137,7 @@ public class _Framework extends BaseScreenMobile {
 		
 		click(selecionarEndereco);
 		clicarBotaoContinuar();
+		click(enderecoEstaCorreto);
 	}
 	
 	@Deprecated
@@ -127,7 +148,6 @@ public class _Framework extends BaseScreenMobile {
 
 	public void verSacola () {
 		
-		click(entendidoZe);
 		click(verSacola);
 	}
 	
@@ -136,15 +156,14 @@ public class _Framework extends BaseScreenMobile {
 		String descExcluir;
 		try {
 			do {
-				driver.findElement(MobileBy.AccessibilityId("delete-product")).click();
-				driver.findElement(MobileBy.AccessibilityId("primary-modal-button")).click();
-				Thread.sleep(2000);
-				descExcluir = driver.findElement(MobileBy.AccessibilityId("delete-product")).getAttribute("content-desc");
+				click(excluirProduto);
+				click(confirmarExclusaoProduto);
+				waitToBeClickable(excluirProduto, 5);
+				descExcluir = excluirProduto.getAttribute("content-desc");
 			} while (descExcluir.contentEquals("delete-product"));
 		} catch (Throwable e) {}
-	
 		try {
-			driver.findElement(MobileBy.AccessibilityId("Go Back")).click();
+			click(voltar);
 		} catch (Throwable e) {}
 	}
 	
@@ -155,13 +174,14 @@ public class _Framework extends BaseScreenMobile {
 	
 	public void sair () {
 
-		driver.findElement(MobileBy.AccessibilityId("logout-card")).click();
-		driver.findElement(MobileBy.AccessibilityId("primary-modal-button")).click();
+		click(sair);
+		click(simQueroSair);
 	}
 	
 	public String validarLogout () {
 		
-		return getText(validarLogout);
+		waitToBeVisibility(validarLogout, 10);
+		return validarLogout.getText();
 	}
 		
 }
