@@ -14,8 +14,6 @@ public class LoginWeb implements Constantes {
 		
 		step.url(urlZeDelivery);
 		step.logar(usuarioZeDelivery, senhaZeDelivery);
-		
 		Assert.assertEquals("Olá, Joao", step.validaLogin());
 	}
-	
 }

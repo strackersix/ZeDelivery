@@ -14,7 +14,7 @@ public class BaseScreenMobile extends Capabilities {
 		// TODO Auto-generated constructor stub
 	}
 
-	WebDriverWait wait = new WebDriverWait(driver, 10);
+	WebDriverWait wait = new WebDriverWait(driver, 5);
 	
 	public void click (MobileElement element) {
 		

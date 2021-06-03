@@ -1,0 +1,51 @@
+* Criar Chave SSH Git
+  ssh-keygen -t ed25519 -C "your_email@example.com"
+
+* Criar repositório Git
+  git init 
+
+* Configurar ambiente git do zero caso não exista nenhum repositório remoto.
+  git config --global user.name "Gabriel Conrado"
+  git config --global user.email "strackersix@gmail.com"
+
+* Adicionar repositório remoto do git hub 
+  git remote add origin "git@github.com:strackersix/ZeDelivery.git"
+
+------------------------------------//----------------------------------
+
+* Clonar projeto Gut Hub em uma subpasta 
+  git clone "git@github.com:strackersix/ZeDelivery.git" Nova Pasta
+
+* Importar / puxar o Projeto git
+  git pull origin master 
+
+-----------------------------------//------------------------------------
+
+* Verificar status dos arquivos para stage area
+  git status
+
+* Levar todos os arquivos para o Stage Area 
+  git add . 
+
+* Commitar as alterações que serão empurradas para o repositório git
+  git commit -m "Descrição do commit"
+
+* Empurrar / exportar o projeto para o repositório git
+  git push origin master 
+
+------------------------------------//-----------------------------------
+
+* Sincronismo com o repositório git 
+  git fetch 
+
+* Criação de uma branch nova
+  git checkout -b "Descrição da branch"
+
+* Lista as branchs no servidor 
+  git ls-remote 
+
+* Lista as branchs local 
+  git branch 
+
+* Verificar log. Pressionar a tecla "q" para retornar
+  git log 

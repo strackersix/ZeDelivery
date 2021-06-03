@@ -19,15 +19,15 @@ import Web.LogoutWeb;
 //	//API
 //	API.class, 
 //	
-	//WEB
-	LoginWeb.class,
-	InserirProdutosNaSacola.class,
+//	//WEB
+//	LoginWeb.class,
+//	InserirProdutosNaSacola.class,
 //	LogoutWeb.class,
 	
-//	//Mobile
-//	LoginMobile.class,
-//	ExcluirProdutosDaSacola.class,
-//	LogoutMobile.class
+	//Mobile
+	LoginMobile.class,
+	ExcluirProdutosDaSacola.class,
+	LogoutMobile.class
 	
 })
 

@@ -6,30 +6,28 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DriverFactory {
 
-	public static WebDriver driver;
-	
-	private void instanciarDriverFactor() {
-		
+	private static WebDriver driver;
+
+	public DriverFactory() {
+
+		if (driver == null) {
+			inicializaDriverFactory();
+		}
+	}
+
+	public static WebDriver inicializaDriverFactory() {
+
 		System.setProperty("webdriver.chrome.driver", "C:\\Automacao\\ChromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
-		PageFactory.initElements(driver, this);
+		return driver;
 	}
-	
-	public DriverFactory() {
-	
-		inicializaDriverFactory();
-	}
-	
-	public void inicializaDriverFactory() {
-		
-		if (driver == null)
-			instanciarDriverFactor();
-	}
-	
+
 	public static void finalizarDriverFactory() {
-		
-		driver.quit();
-		driver = null;
+
+		if (driver != null) {
+			driver.quit();
+			driver = null;
+		}
 	}
-		
+
 }
